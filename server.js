@@ -1,8 +1,6 @@
-var http = require('http');
+var express = require('express');
+var server = express();
 
-var peticion = function(req, res){
-    res.writeHead('200',{'content-type':'text/plain'});
-    res.end('Hola Mundo');
-};
+require('./app/controllers/home')(server);
 
-var server = http.createServer(peticion).listen(3000);
+server.listen(3000);
